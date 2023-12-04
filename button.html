@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --dark-color:#635bff;
+            --light-color:#80e9ff;
+        }
+
+        svg{
+            cursor:pointer;
+        
+        }
+        
+
+        #darkGroup{
+            fill:var(--dark-color);
+        }
+
+        #lightGroup{
+            fill:var(--light-color);
+        }
+
+    #light1,#dark1,#dark2
+{
+    transition:all 1s ease;
+}
+
+#dark2
+{
+    transform:translate(-100%);
+}
+
+svg:hover #light1{
+transform:translate(20%)
+}
+
+svg:hover #dark1{
+    transform: translate(40%);
+    opacity:0;
+}
+
+svg:hover #dark2
+{
+    transform:translate(0%)
+}
+
+
+
+    </style>
+</head>
+<body>
+    <svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="triangles" clip-path="url(#clip0_1_6)">
+        <g id="lightGroup">
+        <path id="light1" d="M54.0532 49.9999L13.5994 73.4625L13.5071 26.6973L54.0532 49.9999Z"  fill-opacity="0.67"/>
+        </g>
+        <g id="darkGroup">
+        <path id="dark1" d="M78.0532 49.9999L37.5994 73.4625L37.5071 26.6973L78.0532 49.9999Z"  fill-opacity="0.59"/>
+        <path id="dark2" d="M54.0532 49.9999L13.5994 73.4625L13.5071 26.6973L54.0532 49.9999Z"  fill-opacity="0.59"/>
+        </g>
+        </g>
+        <defs>
+        <clipPath id="clip0_1_6">
+        <rect width="120" height="100" fill="white"/>
+        </clipPath>
+        </defs>
+        </svg>
+
+
+<script>
+    const svg =document.querySelector("svg")
+    console.log(svg)
+
+    svg.onclick=(e)=>
+    {
+     const colors=["red","green","orange","blue","pink","purple","cyan","black","chocolate"] 
+     const rando=()=>colors[Math.floor(Math.random()*colors.length)]
+     document.documentElement.style.cssText= 
+     `--dark-color:${rando()};
+     --light-color:${rando()};`   }
+</script>
+
+
+</body>
+</html>
